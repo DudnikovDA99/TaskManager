@@ -12,6 +12,8 @@ class TaskAdmin(admin.ModelAdmin):
 
         super().save_model(request, obj, form, change)
 
+    exclude = ("created_by",)
+
 
 admin.site.register(Task, TaskAdmin)
 
