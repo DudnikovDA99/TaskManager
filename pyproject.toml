@@ -1,0 +1,13 @@
+[tool.black]
+line-length = 88
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | venv
+  | env
+  | migrations
+  | build
+  | dist
+)/
+'''
