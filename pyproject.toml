@@ -1,0 +1,24 @@
+[tool.black]
+line-length = 88
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | venv
+  | env
+  | migrations
+  | build
+  | dist
+)/
+'''
+
+[tool.ruff]
+line-length = 88
+exclude = ["venv", "migrations"]
+
+[tool.ruff.lint]
+ignore = [
+    "E501",
+    "W291",
+    "W293",
+]

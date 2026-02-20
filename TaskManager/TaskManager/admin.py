@@ -3,7 +3,7 @@ from .models import Task
 
 
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ("name", "created_at", "updated_at", "is_completed" )
+    list_display = ("name", "created_at", "updated_at", "is_completed")
 
     def save_model(self, request, obj, form, change):
         if not obj.created_by:
