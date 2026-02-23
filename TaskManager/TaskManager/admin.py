@@ -8,8 +8,9 @@ class SubtaskInline(admin.TabularInline):
     model = Subtask
     extra = 1
     can_delete = False
-    readonly_fields = ["edit_link",]
-
+    readonly_fields = [
+        "edit_link",
+    ]
 
     def get_fields(self, request, obj=None):
         fields = [
