@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "TaskManager",
+    "app.task_app.apps.TaskmanagerConfig",
     "rest_framework",
     "drf_yasg",
     "corsheaders",
@@ -57,7 +57,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "Manager.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -78,7 +78,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
 CORS_ALLOW_ALL_ORIGINS = True
-WSGI_APPLICATION = "Manager.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database
