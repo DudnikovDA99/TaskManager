@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('TaskManager', '0003_task_priority'),
+        ('task_app', '0003_task_priority'),
     ]
 
     operations = [

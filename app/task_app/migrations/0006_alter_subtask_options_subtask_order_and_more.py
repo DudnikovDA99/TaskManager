@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('TaskManager', '0005_subtask'),
+        ('task_app', '0005_subtask'),
     ]
 
     operations = [
@@ -23,6 +23,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='subtask',
             name='task',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='TaskManager.task'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='task_app.task'),
         ),
     ]

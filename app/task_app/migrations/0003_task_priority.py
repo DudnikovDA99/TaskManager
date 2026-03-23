@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('TaskManager', '0002_remove_task_user_task_created_by'),
+        ('task_app', '0002_remove_task_user_task_created_by'),
     ]
 
     operations = [

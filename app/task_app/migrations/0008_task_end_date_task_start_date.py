@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("TaskManager", "0007_subtask_description_alter_task_description"),
+        ("task_app", "0007_subtask_description_alter_task_description"),
     ]
 
     operations = [
