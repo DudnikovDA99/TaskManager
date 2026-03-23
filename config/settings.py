@@ -28,7 +28,10 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "26.117.2.5",
+    "26.230.223.63",
+]
 
 
 # Application definition
@@ -45,6 +48,15 @@ INSTALLED_APPS = [
     "drf_yasg",
     "corsheaders",
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.IsAuthenticated",
+    ),
+}
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
