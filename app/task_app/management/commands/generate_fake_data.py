@@ -52,7 +52,7 @@ class Command(BaseCommand):
     def create_task(self, user):
         now = datetime.now()
         created_at = fake.date_time_between(start_date=now.replace(now.year - 2))
-        task = Task.objects.create(
+        Task.objects.create(
             name=fake.catch_phrase(),
             description=fake.paragraph(nb_sentences=random.randint(1, 5)),
             created_at=created_at,
