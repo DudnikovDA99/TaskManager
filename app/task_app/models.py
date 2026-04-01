@@ -1,5 +1,14 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+from django.conf import settings
+import uuid
+
+
+class CustomUser(AbstractUser):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    class Meta:
+        db_table = "user"
 
 
 class Task(models.Model):
@@ -9,13 +18,14 @@ class Task(models.Model):
         DAILY = 3, "Daily"
         GRIND = 4, "Grind"
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     priority = models.IntegerField(
         choices=Priority.choices,
         default=Priority.SIDE_QUEST,
     )
     name = models.CharField(max_length=255)
     created_by = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True, blank=True
+        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True
     )
     description = models.TextField(default="")
     created_at = models.DateTimeField(auto_now_add=True)
