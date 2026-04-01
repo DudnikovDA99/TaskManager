@@ -2,7 +2,7 @@ import os
 import random
 from datetime import datetime
 
-from django.contrib.auth import get_user_model
+from ...models import CustomUser
 from django.core.management.base import BaseCommand
 from dotenv import load_dotenv
 from faker import Faker
@@ -12,7 +12,7 @@ from ...models import Task
 load_dotenv()
 
 fake = Faker("ru_RU")
-User = get_user_model()
+
 fake.date
 
 
@@ -32,7 +32,7 @@ class Command(BaseCommand):
         username = fake.unique.user_name()
         email = fake.unique.email()
         now = datetime.now()
-        user = User.objects.create_user(
+        user = CustomUser.objects.create_user(
             password=os.getenv("TEST_PASSWORD"),
             last_login=fake.date_time_between(start_date=now.replace(now.year - 2)),
             is_superuser=False,
@@ -40,7 +40,7 @@ class Command(BaseCommand):
             last_name=fake.last_name(),
             email=email,
             is_staff=False,
-            is_active=random.choice([True, False]),
+            is_active=True,
             date_joined=fake.date_time_between(
                 start_date=now.replace(now.year - 4),
                 end_date=now.replace(now.year - 2),
